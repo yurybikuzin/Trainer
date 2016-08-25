@@ -18,16 +18,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         window = UIWindow(frame: UIScreen.main.bounds)
+        
         let mainViewController = MainViewController(nibName: "MainViewController", bundle: nil)
         mainViewController.tabBarItem = UITabBarItem.init(title: "Тест", image: nil, tag: 0)
-        
+        /*
         let tabBarController = UITabBarController.init()
         tabBarController.viewControllers = [mainViewController]
-        //        let navController = UINavigationController(rootViewController: mainViewController)
-        //        navController.navigationBar.translucent = false
-        //        window?.rootViewController = navController
         
         window?.rootViewController = tabBarController
+        */
+        window?.rootViewController = mainViewController
         window?.makeKeyAndVisible()
         
         return true
