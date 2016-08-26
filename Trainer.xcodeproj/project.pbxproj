@@ -406,6 +406,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 842P5XXN9E;
 				INFOPLIST_FILE = Trainer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.winner.Trainer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -419,6 +420,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 842P5XXN9E;
 				INFOPLIST_FILE = Trainer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.winner.Trainer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -503,6 +505,7 @@
 				DC20A9511D673B12008C6266 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DC20A9521D673B12008C6266 /* Build configuration list for PBXNativeTarget "TrainerTests" */ = {
 			isa = XCConfigurationList;
@@ -511,6 +514,7 @@
 				DC20A9541D673B12008C6266 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DC20A9551D673B12008C6266 /* Build configuration list for PBXNativeTarget "TrainerUITests" */ = {
 			isa = XCConfigurationList;
@@ -519,6 +523,7 @@
 				DC20A9571D673B12008C6266 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

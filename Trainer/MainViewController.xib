@@ -49,7 +49,7 @@
                 <constraint firstAttribute="bottom" secondItem="Com-MI-cIC" secondAttribute="bottom" priority="750" id="lR8-mn-YpU"/>
                 <constraint firstItem="Com-MI-cIC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="wh2-y4-6EL"/>
             </constraints>
-            <point key="canvasLocation" x="33.5" y="53.5"/>
+            <point key="canvasLocation" x="-553" y="-1417"/>
         </view>
         <view contentMode="scaleToFill" id="M4T-nA-OdC" userLabel="resultView">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -92,7 +92,7 @@
                 <constraint firstItem="Pgh-lD-gBQ" firstAttribute="top" secondItem="KPF-9v-HLg" secondAttribute="bottom" constant="30" id="gSW-Fx-T9s"/>
                 <constraint firstItem="KPF-9v-HLg" firstAttribute="centerX" secondItem="M4T-nA-OdC" secondAttribute="centerX" id="zjq-JM-ZRF"/>
             </constraints>
-            <point key="canvasLocation" x="33.5" y="789.5"/>
+            <point key="canvasLocation" x="1338" y="-1418"/>
         </view>
         <view contentMode="scaleToFill" id="sE6-Ur-iOV" userLabel="excerciseView">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -144,6 +144,7 @@
                 <constraint firstItem="fA0-5U-fE6" firstAttribute="centerX" secondItem="sE6-Ur-iOV" secondAttribute="centerX" id="uFw-7p-7KR"/>
                 <constraint firstItem="u2T-4c-4tg" firstAttribute="centerX" secondItem="sE6-Ur-iOV" secondAttribute="centerX" id="vNb-MK-NVm"/>
             </constraints>
+            <point key="canvasLocation" x="860" y="-1419"/>
         </view>
         <view contentMode="scaleToFill" id="sLf-Ie-UE5" userLabel="startView">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -173,11 +174,11 @@
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="wEw-3G-2LX" secondAttribute="trailing" id="AzZ-cd-G30"/>
                         <constraint firstItem="lwm-cn-oog" firstAttribute="centerX" secondItem="lxX-PO-cbM" secondAttribute="centerX" id="DMS-Mj-ft7"/>
-                        <constraint firstItem="lwm-cn-oog" firstAttribute="top" secondItem="wEw-3G-2LX" secondAttribute="bottom" constant="8" id="IrT-0H-0qD"/>
+                        <constraint firstItem="lwm-cn-oog" firstAttribute="top" secondItem="wEw-3G-2LX" secondAttribute="bottom" constant="16" id="IrT-0H-0qD"/>
                         <constraint firstAttribute="bottom" secondItem="lsd-Se-xeo" secondAttribute="bottom" id="gDn-kb-Lmg"/>
                         <constraint firstItem="lsd-Se-xeo" firstAttribute="centerX" secondItem="lxX-PO-cbM" secondAttribute="centerX" id="jUd-iI-8vI"/>
                         <constraint firstItem="wEw-3G-2LX" firstAttribute="top" secondItem="lxX-PO-cbM" secondAttribute="top" id="yUD-nM-t9h"/>
-                        <constraint firstItem="lsd-Se-xeo" firstAttribute="top" secondItem="lwm-cn-oog" secondAttribute="bottom" constant="8" id="zes-ri-A4F"/>
+                        <constraint firstItem="lsd-Se-xeo" firstAttribute="top" secondItem="lwm-cn-oog" secondAttribute="bottom" constant="16" id="zes-ri-A4F"/>
                         <constraint firstItem="wEw-3G-2LX" firstAttribute="leading" secondItem="lxX-PO-cbM" secondAttribute="leading" id="zfg-7K-YOT"/>
                     </constraints>
                 </view>
@@ -188,6 +189,7 @@
                 <constraint firstItem="lxX-PO-cbM" firstAttribute="centerY" secondItem="sLf-Ie-UE5" secondAttribute="centerY" id="QXr-F8-Gur"/>
                 <constraint firstItem="lxX-PO-cbM" firstAttribute="width" secondItem="sLf-Ie-UE5" secondAttribute="width" multiplier="0.67" id="gVE-TQ-gP4"/>
             </constraints>
+            <point key="canvasLocation" x="374" y="-1418"/>
         </view>
         <view contentMode="scaleToFill" id="nDc-7C-NHW" userLabel="choiceView">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -226,7 +228,7 @@
                 <constraint firstAttribute="trailing" secondItem="Isu-Pm-mZb" secondAttribute="trailing" id="ptw-HB-IOL"/>
                 <constraint firstAttribute="trailing" secondItem="XTF-0h-4au" secondAttribute="trailing" id="z5m-4f-2Z8"/>
             </constraints>
-            <point key="canvasLocation" x="51" y="-1416"/>
+            <point key="canvasLocation" x="-93" y="-1418"/>
         </view>
     </objects>
 </document>
