@@ -202,7 +202,7 @@
 					DC20A9261D673B11008C6266 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 842P5XXN9E;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					DC20A93A1D673B12008C6266 = {
 						CreatedOnToolsVersion = 8.0;
@@ -404,12 +404,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 842P5XXN9E;
 				INFOPLIST_FILE = Trainer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.winner.Trainer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "d6f45f0d-26a6-464e-9895-291b83ac4f53";
+				PROVISIONING_PROFILE_SPECIFIER = "Yury Bikuzin iOS Development";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -418,12 +421,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 842P5XXN9E;
 				INFOPLIST_FILE = Trainer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.winner.Trainer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "d6f45f0d-26a6-464e-9895-291b83ac4f53";
+				PROVISIONING_PROFILE_SPECIFIER = "Yury Bikuzin iOS Development";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
