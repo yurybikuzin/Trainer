@@ -22,6 +22,7 @@ class ExcerciseResult {
 }
 
 class ExcerciseResultPack {
+    let startDate: Date
     let author: String
     let title: String
     var excerciseResults = [ExcerciseResult]()
@@ -36,7 +37,8 @@ class ExcerciseResultPack {
     }
     var isComplete = false
     var timing: TimeInterval = 0
-    init (author: String, title: String) {
+    init (startDate: Date, author: String, title: String) {
+        self.startDate = startDate
         self.author = author
         self.title = title
     }

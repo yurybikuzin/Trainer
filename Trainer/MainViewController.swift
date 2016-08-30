@@ -68,6 +68,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                 case .start:
                     selectedChoiceLabel.text = selectedChoice!.title
                 case .excercise:
+                    currentExcerciseResultPack = ExcerciseResultPack.init(startDate: Date.init(timeIntervalSinceNow: 0), author: "Гость", title: selectedChoice!.title)
                     setExcercise(excercises.popLast()!)
                     startExcerciseElapsedTimer()
                     excerciseAnswerTextField.becomeFirstResponder()
@@ -230,7 +231,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     @objc func keyboardDoneButtonPressed(sender: UIBarButtonItem) {
-        checkAnswer()
+        acceptAnswer()
     }
     
     override func didReceiveMemoryWarning() {
@@ -244,7 +245,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     var currentExcercise: Excercise?
     
     @IBOutlet weak var progressView: UIProgressView!
+    var excerciseStartDate: Date!
     func setExcercise(_ excercise: Excercise) {
+        excerciseStartDate = Date.init(timeIntervalSinceNow: 0)
         keyboardDoneButton?.isEnabled = false
         currentExcercise = excercise
         excerciseLabel.text = excercise.labelText
@@ -258,10 +261,16 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         keyboardDoneButton?.isEnabled = (sender.text?.characters.count)! > 0
     }
     
-    func checkAnswer() {
+
+    var currentExcerciseResultPack: ExcerciseResultPack!
+    func acceptAnswer() {
         keyboardDoneButton?.isEnabled = false
         if let answer = Int(excerciseAnswerTextField.text!) {
             let isValid = currentExcercise!.isValid(answer: answer)
+            currentExcerciseResultPack!.excerciseResults.append(ExcerciseResult.init(labelText: currentExcercise!.labelText, answerText: excerciseAnswerTextField.text!, isValidAnswer: isValid, timing: Date.init(timeIntervalSinceNow: 0).timeIntervalSince(excerciseStartDate)))
+            if !isValid {
+                errorCountLabel.setErrorCount(currentExcerciseResultPack.errorCount)
+            }
             if !isValid {
                 excercises.insert(currentExcercise!, at: 0)
             }
@@ -280,6 +289,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             })
         }
     }
+    @IBOutlet weak var errorCountLabel: UILabel!
     
     @IBAction func backToChoiceButtonPressed(_ sender: AnyObject) {
         currentPage = .choice
@@ -288,7 +298,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     // MARK: UITextFieldDelegate
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        checkAnswer()
+        acceptAnswer()
         return true
     }
     
@@ -322,4 +332,16 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         currentPage = .start
     }
     
+}
+
+extension UILabel {
+    func setErrorCount(_ errorCount: Int) {
+        if errorCount <= 0 {
+            text = "Без ошибок"
+            textColor = UIColor.init(red: 0, green: 128/255, blue: 0, alpha: 1)
+        } else {
+            text = "Ошибок: \(errorCount))"
+            textColor = UIColor.red
+        }
+    }
 }
