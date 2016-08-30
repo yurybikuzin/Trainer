@@ -17,7 +17,7 @@ class ChoiceGroup {
     }
 }
 
-class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate{
 
     @IBOutlet var choiceView: UIView!
     @IBOutlet var startView: UIView!
@@ -283,6 +283,13 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBAction func backToChoiceButtonPressed(_ sender: AnyObject) {
         currentPage = .choice
+    }
+    
+    // MARK: UITextFieldDelegate
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        checkAnswer()
+        return true
     }
     
     // MARK: UITableViewDataSource
