@@ -14,6 +14,8 @@
 		DC20A95A1D673C23008C6266 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC20A9581D673C23008C6266 /* MainViewController.swift */; };
 		DC20A95B1D673C23008C6266 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC20A9591D673C23008C6266 /* MainViewController.xib */; };
 		DC20A95E1D677588008C6266 /* Excercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC20A95D1D677588008C6266 /* Excercise.swift */; };
+		DC61FCB01D759B1300F18BE0 /* ExcerciseResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC61FCAF1D759B1300F18BE0 /* ExcerciseResult.swift */; };
+		DC61FCB41D759C1200F18BE0 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC61FCB31D759C1200F18BE0 /* CloudKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,9 @@
 		DC20A9581D673C23008C6266 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		DC20A9591D673C23008C6266 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		DC20A95D1D677588008C6266 /* Excercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Excercise.swift; sourceTree = "<group>"; };
+		DC61FCAF1D759B1300F18BE0 /* ExcerciseResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExcerciseResult.swift; sourceTree = "<group>"; };
+		DC61FCB11D759BE600F18BE0 /* Trainer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Trainer.entitlements; sourceTree = "<group>"; };
+		DC61FCB31D759C1200F18BE0 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC61FCB41D759C1200F18BE0 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +87,7 @@
 				DC20A93E1D673B12008C6266 /* TrainerTests */,
 				DC20A9491D673B12008C6266 /* TrainerUITests */,
 				DC20A9281D673B11008C6266 /* Products */,
+				DC61FCB21D759C1200F18BE0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,10 +104,12 @@
 		DC20A9291D673B11008C6266 /* Trainer */ = {
 			isa = PBXGroup;
 			children = (
+				DC61FCB11D759BE600F18BE0 /* Trainer.entitlements */,
 				DC20A92A1D673B11008C6266 /* AppDelegate.swift */,
 				DC20A9311D673B11008C6266 /* Assets.xcassets */,
 				DC20A9361D673B11008C6266 /* Info.plist */,
 				DC20A95D1D677588008C6266 /* Excercise.swift */,
+				DC61FCAF1D759B1300F18BE0 /* ExcerciseResult.swift */,
 				DC20A95C1D673C2B008C6266 /* MainViewController */,
 			);
 			path = Trainer;
@@ -131,6 +140,14 @@
 				DC20A9591D673C23008C6266 /* MainViewController.xib */,
 			);
 			name = MainViewController;
+			sourceTree = "<group>";
+		};
+		DC61FCB21D759C1200F18BE0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DC61FCB31D759C1200F18BE0 /* CloudKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,7 +219,15 @@
 					DC20A9261D673B11008C6266 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 842P5XXN9E;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					DC20A93A1D673B12008C6266 = {
 						CreatedOnToolsVersion = 8.0;
@@ -271,6 +296,7 @@
 			files = (
 				DC20A92B1D673B11008C6266 /* AppDelegate.swift in Sources */,
 				DC20A95E1D677588008C6266 /* Excercise.swift in Sources */,
+				DC61FCB01D759B1300F18BE0 /* ExcerciseResult.swift in Sources */,
 				DC20A95A1D673C23008C6266 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -404,15 +430,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Trainer/Trainer.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 842P5XXN9E;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Trainer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.winner.Trainer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.winner.ExcerciseTrainer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d6f45f0d-26a6-464e-9895-291b83ac4f53";
-				PROVISIONING_PROFILE_SPECIFIER = "Yury Bikuzin iOS Development";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -421,15 +448,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Trainer/Trainer.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 842P5XXN9E;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Trainer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.winner.Trainer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.winner.ExcerciseTrainer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d6f45f0d-26a6-464e-9895-291b83ac4f53";
-				PROVISIONING_PROFILE_SPECIFIER = "Yury Bikuzin iOS Development";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
