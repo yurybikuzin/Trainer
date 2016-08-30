@@ -66,7 +66,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                 case .choice:
                     stopExcerciseElapsedTimer()
                 case .start:
-                    startLabel.text = "Вы выбрали тест \"\(selectedChoice!.title)\""
+                    selectedChoiceLabel.text = selectedChoice!.title
                 case .excercise:
                     setExcercise(excercises.popLast()!)
                     startExcerciseElapsedTimer()
@@ -78,7 +78,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
         }
     }
-    @IBOutlet weak var startLabel: UILabel!
+    @IBOutlet weak var selectedChoiceLabel: UILabel!
     
     @IBOutlet weak var elapsedTimeLabel: UILabel!
     var _excerciseElapsedTime: TimeInterval = 0

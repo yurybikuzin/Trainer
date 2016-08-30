@@ -19,7 +19,7 @@
                 <outlet property="progressView" destination="fA0-5U-fE6" id="KwG-IW-Dfj"/>
                 <outlet property="resultLabel" destination="FgL-ha-nBG" id="ZhJ-E1-SOG"/>
                 <outlet property="resultView" destination="M4T-nA-OdC" id="c9F-QB-ekL"/>
-                <outlet property="startLabel" destination="wEw-3G-2LX" id="los-Hd-2tM"/>
+                <outlet property="selectedChoiceLabel" destination="Opw-tN-q8Y" id="vJY-Yn-DMC"/>
                 <outlet property="startView" destination="sLf-Ie-UE5" id="xyU-US-bFs"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -77,7 +77,15 @@
                         <constraint firstItem="nEv-IA-STU" firstAttribute="centerX" secondItem="KPF-9v-HLg" secondAttribute="centerX" id="vL5-k0-ZFA"/>
                     </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NZw-hj-rON" userLabel="repeatButton">
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal" title="Повторить тест"/>
+                    <connections>
+                        <action selector="startButtonPressed" destination="-1" eventType="touchUpInside" id="XKd-Of-grh"/>
+                    </connections>
+                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pgh-lD-gBQ" userLabel="toStartButton">
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <state key="normal" title="В начало"/>
                     <connections>
                         <action selector="toStartButtonPressed" destination="-1" eventType="touchUpInside" id="Cg8-se-w3S"/>
@@ -86,9 +94,11 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="NZw-hj-rON" firstAttribute="top" secondItem="KPF-9v-HLg" secondAttribute="bottom" constant="30" id="FVk-V4-FHq"/>
                 <constraint firstItem="KPF-9v-HLg" firstAttribute="centerY" secondItem="M4T-nA-OdC" secondAttribute="centerY" id="R2P-WC-0Wc"/>
+                <constraint firstItem="NZw-hj-rON" firstAttribute="centerX" secondItem="M4T-nA-OdC" secondAttribute="centerX" id="bjk-nk-obB"/>
                 <constraint firstItem="Pgh-lD-gBQ" firstAttribute="centerX" secondItem="M4T-nA-OdC" secondAttribute="centerX" id="cRS-Me-JdT"/>
-                <constraint firstItem="Pgh-lD-gBQ" firstAttribute="top" secondItem="KPF-9v-HLg" secondAttribute="bottom" constant="30" id="gSW-Fx-T9s"/>
+                <constraint firstItem="Pgh-lD-gBQ" firstAttribute="top" secondItem="NZw-hj-rON" secondAttribute="bottom" constant="20" id="vVM-V6-Df1"/>
                 <constraint firstItem="KPF-9v-HLg" firstAttribute="centerX" secondItem="M4T-nA-OdC" secondAttribute="centerX" id="zjq-JM-ZRF"/>
             </constraints>
             <point key="canvasLocation" x="1338" y="-1418"/>
@@ -152,18 +162,25 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lxX-PO-cbM" userLabel="startInnerView">
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вы выбрали тест &quot;Таблица умножения на 2&quot;" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wEw-3G-2LX" userLabel="startLabel">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вы выбрали тест" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wEw-3G-2LX" userLabel="startTitleLabel">
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Opw-tN-q8Y" userLabel="selectedChoiceLabel">
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lwm-cn-oog" userLabel="startButton">
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <state key="normal" title="Начать тест"/>
                             <connections>
                                 <action selector="startButtonPressed" destination="-1" eventType="touchUpInside" id="JJa-pf-CNM"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lsd-Se-xeo" userLabel="backToChoiceButton">
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <state key="normal" title="Вернуться"/>
                             <connections>
                                 <action selector="backToChoiceButtonPressed:" destination="-1" eventType="touchUpInside" id="o7I-Qa-ZbT"/>
@@ -174,11 +191,15 @@
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="wEw-3G-2LX" secondAttribute="trailing" id="AzZ-cd-G30"/>
                         <constraint firstItem="lwm-cn-oog" firstAttribute="centerX" secondItem="lxX-PO-cbM" secondAttribute="centerX" id="DMS-Mj-ft7"/>
-                        <constraint firstItem="lwm-cn-oog" firstAttribute="top" secondItem="wEw-3G-2LX" secondAttribute="bottom" constant="16" id="IrT-0H-0qD"/>
+                        <constraint firstItem="lwm-cn-oog" firstAttribute="top" secondItem="Opw-tN-q8Y" secondAttribute="bottom" constant="30" id="LyY-JB-BPh"/>
                         <constraint firstAttribute="bottom" secondItem="lsd-Se-xeo" secondAttribute="bottom" id="gDn-kb-Lmg"/>
+                        <constraint firstItem="Opw-tN-q8Y" firstAttribute="leading" secondItem="lxX-PO-cbM" secondAttribute="leading" id="h6I-xf-9AF"/>
+                        <constraint firstItem="Opw-tN-q8Y" firstAttribute="centerX" secondItem="lxX-PO-cbM" secondAttribute="centerX" id="j6y-el-D2E"/>
                         <constraint firstItem="lsd-Se-xeo" firstAttribute="centerX" secondItem="lxX-PO-cbM" secondAttribute="centerX" id="jUd-iI-8vI"/>
+                        <constraint firstItem="Opw-tN-q8Y" firstAttribute="top" secondItem="wEw-3G-2LX" secondAttribute="bottom" constant="8" id="u2d-TJ-5tu"/>
+                        <constraint firstAttribute="trailing" secondItem="Opw-tN-q8Y" secondAttribute="trailing" id="vtb-fk-wbY"/>
                         <constraint firstItem="wEw-3G-2LX" firstAttribute="top" secondItem="lxX-PO-cbM" secondAttribute="top" id="yUD-nM-t9h"/>
-                        <constraint firstItem="lsd-Se-xeo" firstAttribute="top" secondItem="lwm-cn-oog" secondAttribute="bottom" constant="16" id="zes-ri-A4F"/>
+                        <constraint firstItem="lsd-Se-xeo" firstAttribute="top" secondItem="lwm-cn-oog" secondAttribute="bottom" constant="20" id="zes-ri-A4F"/>
                         <constraint firstItem="wEw-3G-2LX" firstAttribute="leading" secondItem="lxX-PO-cbM" secondAttribute="leading" id="zfg-7K-YOT"/>
                     </constraints>
                 </view>
