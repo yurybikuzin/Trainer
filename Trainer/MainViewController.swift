@@ -197,6 +197,20 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         choices = []
         do {
             var excerciseGenerators = [ExcerciseGenerator]()
+            excerciseGenerators.append(AdditionTill20ExcerciseGenerator.init())
+            excerciseGenerators.append(AdditionExcerciseGenerator.init(title: "Сложение до 100", minSum: 20, maxSum: 100, minParam: 9, count: 11) )
+            excerciseGenerators.append(AdditionExcerciseGenerator.init(title: "Сложение до 1000", minSum: 100, maxSum: 1000, minParam: 9, count: 11))
+            choices.append(ChoiceGroup.init(title: "Сложение", excerciseGenerators: excerciseGenerators))
+        }
+        do {
+            var excerciseGenerators = [ExcerciseGenerator]()
+            excerciseGenerators.append(SubtractionTill20ExcerciseGenerator.init())
+            excerciseGenerators.append(SubtractionExcerciseGenerator.init(title: "Вычитание до 100", minSum: 20, maxSum: 100, minParam: 9, count: 11) )
+            excerciseGenerators.append(SubtractionExcerciseGenerator.init(title: "Вычитание до 1000", minSum: 100, maxSum: 1000, minParam: 9, count: 11))
+            choices.append(ChoiceGroup.init(title: "Вычитание", excerciseGenerators: excerciseGenerators))
+        }
+        do {
+            var excerciseGenerators = [ExcerciseGenerator]()
             for i in 0 ... 10 {
                 excerciseGenerators.append(MultiplyExcerciseGenerator.init(by: i))
             }

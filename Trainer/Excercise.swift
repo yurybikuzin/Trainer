@@ -52,6 +52,138 @@ class MultiplyExcercise: Excercise {
     }
 }
 
+class SubtractionExcercise: Excercise {
+    let left, right: Int
+    init(left: Int, right: Int) {
+        self.left = left
+        self.right = right
+    }
+    
+    // MARK: == Excercise
+    
+    var labelText: String {
+        return "\(left + right) - \(left) = "
+    }
+    func isValid(answer: Int) -> Bool {
+        return answer == right
+    }
+}
+
+class AdditionExercise: Excercise {
+    let left, right: Int
+    init(left: Int, right: Int) {
+        self.left = left
+        self.right = right
+    }
+    
+    // MARK: == Excercise
+    
+    var labelText: String {
+        return "\(left) + \(right) = "
+    }
+    func isValid(answer: Int) -> Bool {
+        return answer == left + right
+    }
+}
+
+class AdditionTill20ExcerciseGenerator: ExcerciseGenerator {
+    let title: String = "Сложение до 20"
+    
+    // MARK: == ExcerciseGenerator
+    func getExcercises() -> [Excercise] {
+        var excercises: [Excercise] = []
+        
+        for i in (10 ... 20) {
+            let min = 2
+            let left = Int(arc4random_uniform(UInt32(i - min * 2)) + UInt32(min))
+            let right = i - left
+            excercises.append(AdditionExercise.init(left: left, right: right))
+        }
+        excercises.shuffle()
+        
+        return excercises
+    }
+}
+
+class SubtractionTill20ExcerciseGenerator: ExcerciseGenerator {
+    let title: String = "Вычитание до 20"
+    
+    // MARK: == ExcerciseGenerator
+    func getExcercises() -> [Excercise] {
+        var excercises: [Excercise] = []
+        
+        for i in (10 ... 20) {
+            let min = 2
+            let left = Int(arc4random_uniform(UInt32(i - min * 2)) + UInt32(min))
+            let right = i - left
+            excercises.append(SubtractionExcercise.init(left: left, right: right))
+        }
+        excercises.shuffle()
+        
+        return excercises
+    }
+}
+
+class AdditionExcerciseGenerator: ExcerciseGenerator {
+    let title: String
+    let minSum: Int
+    let maxSum: Int
+    let minParam: Int
+    let count: Int
+    
+    init(title: String, minSum: Int, maxSum: Int, minParam: Int, count: Int) {
+        self.title = title
+        self.minSum = minSum
+        self.maxSum = maxSum
+        self.minParam = minParam
+        self.count = count
+    }
+    // MARK: == ExcerciseGenerator
+    func getExcercises() -> [Excercise] {
+        var excercises: [Excercise] = []
+        
+        for _ in (0 ..< count) {
+            let sum = Int(arc4random_uniform(UInt32(maxSum - minSum)) + UInt32(minSum))
+            let left = Int(arc4random_uniform(UInt32(sum - minParam * 2)) + UInt32(minParam))
+            let right = sum - left
+            excercises.append(AdditionExercise.init(left: left, right: right))
+        }
+        excercises.shuffle()
+        
+        return excercises
+    }
+}
+
+class SubtractionExcerciseGenerator: ExcerciseGenerator {
+    let title: String
+    let minSum: Int
+    let maxSum: Int
+    let minParam: Int
+    let count: Int
+    
+    init(title: String, minSum: Int, maxSum: Int, minParam: Int, count: Int) {
+        self.title = title
+        self.minSum = minSum
+        self.maxSum = maxSum
+        self.minParam = minParam
+        self.count = count
+    }
+    // MARK: == ExcerciseGenerator
+    func getExcercises() -> [Excercise] {
+        var excercises: [Excercise] = []
+        
+        for _ in (0 ..< count) {
+            let sum = Int(arc4random_uniform(UInt32(maxSum - minSum)) + UInt32(minSum))
+            let left = Int(arc4random_uniform(UInt32(sum - minParam * 2)) + UInt32(minParam))
+            let right = sum - left
+            excercises.append(SubtractionExcercise.init(left: left, right: right))
+        }
+        excercises.shuffle()
+        
+        return excercises
+    }
+}
+
 class MultiplyExcerciseGenerator: ExcerciseGenerator {
     let title: String
     let by: Int
