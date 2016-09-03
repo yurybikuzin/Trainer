@@ -64,7 +64,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ошибок: 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lL4-6G-p1w" userLabel="resultErrorCountLabel">
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -92,7 +92,7 @@
                     <constraints>
                         <constraint firstItem="FgL-ha-nBG" firstAttribute="centerX" secondItem="KPF-9v-HLg" secondAttribute="centerX" id="CA3-o2-tVM"/>
                         <constraint firstItem="lL4-6G-p1w" firstAttribute="centerX" secondItem="KPF-9v-HLg" secondAttribute="centerX" id="Tfu-1J-btu"/>
-                        <constraint firstItem="NZw-hj-rON" firstAttribute="top" secondItem="FgL-ha-nBG" secondAttribute="bottom" constant="20" id="UlC-av-IB3"/>
+                        <constraint firstItem="NZw-hj-rON" firstAttribute="top" secondItem="FgL-ha-nBG" secondAttribute="bottom" constant="24" id="UlC-av-IB3"/>
                         <constraint firstItem="FgL-ha-nBG" firstAttribute="top" secondItem="lL4-6G-p1w" secondAttribute="bottom" constant="8" id="Vf5-lf-Yzj"/>
                         <constraint firstAttribute="bottom" secondItem="Pgh-lD-gBQ" secondAttribute="bottom" constant="20" symbolic="YES" id="Xr3-fN-efi"/>
                         <constraint firstItem="Pgh-lD-gBQ" firstAttribute="top" secondItem="NZw-hj-rON" secondAttribute="bottom" constant="20" id="ayX-7c-Rw1"/>
@@ -179,12 +179,12 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lxX-PO-cbM" userLabel="startInnerView">
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вы выбрали тест" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wEw-3G-2LX" userLabel="startTitleLabel">
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Opw-tN-q8Y" userLabel="selectedChoiceLabel">
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -207,7 +207,7 @@
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="wEw-3G-2LX" secondAttribute="trailing" id="AzZ-cd-G30"/>
                         <constraint firstItem="lwm-cn-oog" firstAttribute="centerX" secondItem="lxX-PO-cbM" secondAttribute="centerX" id="DMS-Mj-ft7"/>
-                        <constraint firstItem="lwm-cn-oog" firstAttribute="top" secondItem="Opw-tN-q8Y" secondAttribute="bottom" constant="20" id="LyY-JB-BPh"/>
+                        <constraint firstItem="lwm-cn-oog" firstAttribute="top" secondItem="Opw-tN-q8Y" secondAttribute="bottom" constant="24" id="LyY-JB-BPh"/>
                         <constraint firstAttribute="bottom" secondItem="lsd-Se-xeo" secondAttribute="bottom" id="gDn-kb-Lmg"/>
                         <constraint firstItem="Opw-tN-q8Y" firstAttribute="leading" secondItem="lxX-PO-cbM" secondAttribute="leading" id="h6I-xf-9AF"/>
                         <constraint firstItem="Opw-tN-q8Y" firstAttribute="centerX" secondItem="lxX-PO-cbM" secondAttribute="centerX" id="j6y-el-D2E"/>
