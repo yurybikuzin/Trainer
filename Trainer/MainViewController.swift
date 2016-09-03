@@ -66,6 +66,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                 case .choice:
                     stopExcerciseElapsedTimer()
                 case .start:
+                    errorCountLabel.text = ""
                     selectedChoiceLabel.text = selectedChoice!.title
                 case .excercise:
                     currentExcerciseResultPack = ExcerciseResultPack.init(startDate: Date.init(timeIntervalSinceNow: 0), author: "Гость", title: selectedChoice!.title)
@@ -75,11 +76,13 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                 case .result:
                     stopExcerciseElapsedTimer()
                     resultLabel.text = excerciseElapsedTimeText
+                    resultErrorCountLabel.setErrorCount(currentExcerciseResultPack.errorCount)
                 }
             }
         }
     }
     @IBOutlet weak var selectedChoiceLabel: UILabel!
+    @IBOutlet weak var resultErrorCountLabel: UILabel!
     
     @IBOutlet weak var elapsedTimeLabel: UILabel!
     var _excerciseElapsedTime: TimeInterval = 0
@@ -282,9 +285,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         if let answer = Int(excerciseAnswerTextField.text!) {
             let isValid = currentExcercise!.isValid(answer: answer)
             currentExcerciseResultPack!.excerciseResults.append(ExcerciseResult.init(labelText: currentExcercise!.labelText, answerText: excerciseAnswerTextField.text!, isValidAnswer: isValid, timing: Date.init(timeIntervalSinceNow: 0).timeIntervalSince(excerciseStartDate)))
-            if !isValid {
-                errorCountLabel.setErrorCount(currentExcerciseResultPack.errorCount)
-            }
+            errorCountLabel.setErrorCount(currentExcerciseResultPack.errorCount)
             if !isValid {
                 excercises.insert(currentExcercise!, at: 0)
             }
@@ -354,8 +355,25 @@ extension UILabel {
             text = "Без ошибок"
             textColor = UIColor.init(red: 0, green: 128/255, blue: 0, alpha: 1)
         } else {
-            text = "Ошибок: \(errorCount))"
+            // text = "Ошибок: \(errorCount)"
+            text = "\(errorCount) \( "ошиб".ended(errorCount, "ка", "ки", "ок") )"
             textColor = UIColor.red
         }
+    }
+}
+
+extension String {
+    func ended(_ count: Int, _ endFor1: String, _ endFor234: String, _ endFor567890: String) -> String {
+        let isTeen = (count / 100 % 10) == 1
+        let lastDigit = count % 10
+        let ending: String
+        if isTeen || lastDigit == 0 || lastDigit >= 5 {
+            ending = endFor567890
+        } else if lastDigit >= 2 {
+            ending = endFor234
+        } else {
+            ending = endFor1
+        }
+        return self.appending(ending)
     }
 }
