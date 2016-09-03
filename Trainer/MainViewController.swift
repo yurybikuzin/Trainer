@@ -66,9 +66,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                 case .choice:
                     stopExcerciseElapsedTimer()
                 case .start:
-                    errorCountLabel.text = ""
                     selectedChoiceLabel.text = selectedChoice!.title
                 case .excercise:
+                    errorCountLabel.text = ""
                     currentExcerciseResultPack = ExcerciseResultPack.init(startDate: Date.init(timeIntervalSinceNow: 0), author: "Гость", title: selectedChoice!.title)
                     setExcercise(excercises.popLast()!)
                     startExcerciseElapsedTimer()
@@ -289,10 +289,11 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             if !isValid {
                 excercises.insert(currentExcercise!, at: 0)
             }
-            UIView.animate(withDuration: 0.5, animations: {
+            let timing = isValid ? 0.25 : 0.5
+            UIView.animate(withDuration: timing, animations: {
                 self.excerciseAnswerTextField.backgroundColor = isValid ? UIColor.green : UIColor.red
                 }, completion: { (Bool) in
-                    UIView.animate(withDuration: 0.5, animations: {
+                    UIView.animate(withDuration: timing, animations: {
                         self.excerciseAnswerTextField.backgroundColor = UIColor.clear
                         }, completion: { (Bool) in
                             if let excercise = self.excercises.popLast() {
