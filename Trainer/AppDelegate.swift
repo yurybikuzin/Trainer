@@ -19,15 +19,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         
+        
         let mainViewController = MainViewController(nibName: "MainViewController", bundle: nil)
         mainViewController.tabBarItem = UITabBarItem.init(title: "Тест", image: nil, tag: 0)
+        let navController = UINavigationController.init(rootViewController: mainViewController)
+        navController.navigationBar.isTranslucent = false
         /*
         let tabBarController = UITabBarController.init()
         tabBarController.viewControllers = [mainViewController]
         
         window?.rootViewController = tabBarController
         */
-        window?.rootViewController = mainViewController
+        window?.rootViewController = navController
         window?.makeKeyAndVisible()
         
         return true

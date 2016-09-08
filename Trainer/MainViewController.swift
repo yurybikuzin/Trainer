@@ -64,19 +64,25 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                 case .none:
                     break
                 case .choice:
+                    navigationItem.title = "Выберите тест"
                     stopExcerciseElapsedTimer()
                 case .start:
+                    navigationItem.title = "Вы выбрали тест"
                     selectedChoiceLabel.text = selectedChoice!.title
                 case .excercise:
+                    navigationItem.title = "Тест"
                     errorCountLabel.text = ""
                     currentExcerciseResultPack = ExcerciseResultPack.init(startDate: Date.init(timeIntervalSinceNow: 0), author: "Гость", title: selectedChoice!.title)
                     setExcercise(excercises.popLast()!)
                     startExcerciseElapsedTimer()
                     excerciseAnswerTextField.becomeFirstResponder()
                 case .result:
+                    navigationItem.title = "Результат теста"
                     stopExcerciseElapsedTimer()
-                    resultLabel.text = excerciseElapsedTimeText
+                    resultLabel.text = excerciseElapsedTime.timeText
                     resultErrorCountLabel.setErrorCount(currentExcerciseResultPack.errorCount)
+                    currentExcerciseResultPack.timing = excerciseElapsedTime
+                    currentExcerciseResultPack.isComplete = true
                 }
             }
         }
@@ -93,16 +99,10 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         set {
             _excerciseElapsedTime = newValue
-            elapsedTimeLabel.text = excerciseElapsedTimeText
+            elapsedTimeLabel.text = excerciseElapsedTime.timeText
         }
     }
-    var excerciseElapsedTimeText: String {
-        let seconds = Int(_excerciseElapsedTime.truncatingRemainder(dividingBy: 60))
-        let minutes = Int((_excerciseElapsedTime / 60).truncatingRemainder(dividingBy: 60))
-        let hours = Int(_excerciseElapsedTime / 3600)
-        let result = String(format: "%02d:%02d:%02d", hours, minutes, seconds)
-        return result
-    }
+
     var excerciseElapsedTimer: Timer? = nil
     let excerciseElapsedTimerTimeInterval: TimeInterval = 1
     func startExcerciseElapsedTimer() {
@@ -184,8 +184,10 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {        
         super.viewDidLoad()
+        
+        //self.navigationItem.title = "Тест"
 
-        pageContainerViewTopConstraint.constant = statusBarHeight()
+        //pageContainerViewTopConstraint.constant = statusBarHeight()
         
         setupChoices()
         
@@ -311,14 +313,19 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         currentPage = .choice
     }
     
-    // MARK: UITextFieldDelegate
+    @IBAction func resultDetailButtonPressed(_ sender: AnyObject) {
+        let vc = ResultDetailViewController.init(excerciseResultPack: currentExcerciseResultPack)
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    // MARK: - UITextFieldDelegate
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         acceptAnswer()
         return true
     }
     
-    // MARK: UITableViewDataSource
+    // MARK: - UITableViewDataSource
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return choices.count
@@ -341,7 +348,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         return cell!
     }
     
-    // MARK: UITableViewDelegate
+    // MARK: - UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedChoice = choices[indexPath.section].excerciseGenerators[indexPath.row]
@@ -350,13 +357,25 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
 }
 
+extension TimeInterval {
+    var timeText: String {
+        let seconds = Int(self.truncatingRemainder(dividingBy: 60))
+        let minutes = Int((self / 60).truncatingRemainder(dividingBy: 60))
+        let hours = Int(self / 3600)
+        let result = String(format: "%02d:%02d:%02d", hours, minutes, seconds)
+        return result
+    }
+    var timeTextWithMsec: String {
+        return timeText + ".\( Int(self * 10) % 10 )"
+    }
+}
+
 extension UILabel {
     func setErrorCount(_ errorCount: Int) {
         if errorCount <= 0 {
             text = "Без ошибок"
             textColor = UIColor.init(red: 0, green: 128/255, blue: 0, alpha: 1)
         } else {
-            // text = "Ошибок: \(errorCount)"
             text = "\(errorCount) \( "ошиб".ended(errorCount, "ка", "ки", "ок") )"
             textColor = UIColor.red
         }
